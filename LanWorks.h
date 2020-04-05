@@ -100,7 +100,7 @@ int client_init()
         if(connect(sockfd, (SA*)&servaddr, sizeof(servaddr))!=0)
         {
             print("LC002\n");
-            return 1;
+            return 2;
         }
         else
         {
