@@ -19,10 +19,13 @@
 #define SA struct sockaddr
 
 char *server_ip = "127.0.0.1";		// Server IP for Client
+char *hostname = "Foo";             // Hostname
+
 int server_port = 8005;				// Sockets Server port number
 int client_port = 8005;				// Sockets Client port number
+
 int sockfd, connfd, client_connfd;
-int can_print = 1;
+int can_print = 0;
 
 char lan_buffer[max_char];			// Sockets Read/Write buffer
 char client_buffer[max_char];		// Sockets Read/Write buffer
@@ -35,6 +38,7 @@ void print(char *_print_text)
         printf("%s", _print_text);
     }
 }
+
 // CLIENT FUNCTIONS
 // Set IP Address
 void client_set_ip(char *_lanworks_ip)
@@ -78,7 +82,7 @@ char *client_read()
 // Initialize Client
 int client_init()
 {
-    struct sockaddr_in servaddr, cli;
+    struct sockaddr_in servaddr;
 
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     if(sockfd==-1)
@@ -111,6 +115,16 @@ int client_init()
     }
 }
 
+// Get server hostname
+char *get_server_hostname()
+{
+    client_write("0x000001");
+    hostname = client_read();
+    hostname = strtok(hostname, "\n");
+    return hostname;
+}
+
+// Close client socket
 void client_close()
 {
     close(client_connfd);
@@ -204,6 +218,7 @@ char *server_read()
     return lan_buffer;
 }
 
+// Close server socket
 void server_close()
 {
     close(sockfd);
