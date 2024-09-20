@@ -9,6 +9,11 @@ their projects and with one function they can set up a working sockets client or
 
 Please report any bugs or issues and feel free to ask any doubts.
 
+## Usage
+To use this library add it to path of your source code (or in a folder /lib) then include it using #include "LanWorks.h", no need for any additional setup or setting up library in gcc as all the library functions is contained in one single header file.
+<br><br>
+Examples are included in `examples/` folder. 
+
 ## Dependencies
 ```c
 // Standard Libraries
