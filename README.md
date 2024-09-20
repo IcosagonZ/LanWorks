@@ -1,13 +1,13 @@
 # LanWorks
 
-#### TCP/IP Sockets wrapper libraru by Icosagon
+#### TCP/IP Sockets wrapper library created by IcosagonZ (which is me)
 
 ## Introduction
 LanWorks is a TCP/IP Sockets wrapper library. It simplifies the process of creating sockets by
 using different predefined functions. Developers can include this “LanWorks.h” library in
 their projects and with one function they can set up a working sockets client or server.
 
-Please report bug or issues and feel free to ask any doubts.
+Please report any bugs or issues and feel free to ask any doubts.
 
 ## Dependencies
 ```c
